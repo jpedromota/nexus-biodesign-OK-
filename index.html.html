@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus BioDesign | Arquitetura Biofílica & Produtividade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --sage: #4A5D4E;
+            --sand: #F5F2ED;
+            --terracotta: #C38161;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--sand);
+            color: #2D2D2D;
+        }
+        h1, h2, h3, .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .bg-sage { background-color: var(--sage); }
+        .text-sage { color: var(--sage); }
+        .border-sage { border-color: var(--sage); }
+        .bg-terracotta { background-color: var(--terracotta); }
+        
+        /* Floating shapes animation */
+        .shape-blob {
+            position: absolute;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.4;
+            animation: move 20s infinite alternate;
+        }
+        @keyframes move {
+            from { transform: translate(0, 0) scale(1); }
+            to { transform: translate(50px, 100px) scale(1.2); }
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Background Shapes -->
+    <div class="shape-blob bg-emerald-200 w-96 h-96 top-0 -left-20 rounded-full"></div>
+    <div class="shape-blob bg-orange-100 w-[500px] h-[500px] bottom-0 -right-20 rounded-full" style="animation-delay: -5s;"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 px-6 py-6" id="navbar">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold tracking-tight serif flex items-center gap-2">
+                <span class="w-8 h-8 bg-sage rounded-full flex items-center justify-center text-white text-sm">N</span>
+                Nexus BioDesign
+            </div>
+            <div class="hidden md:flex gap-10 text-sm font-medium uppercase tracking-widest text-stone-600">
+                <a href="#sobre" class="hover:text-emerald-800 transition-colors">Filosofia</a>
+                <a href="#servicos" class="hover:text-emerald-800 transition-colors">Serviços</a>
+                <a href="#metodo" class="hover:text-emerald-800 transition-colors">O Método</a>
+            </div>
+            <a href="#contato" class="bg-sage text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-emerald-900 transition-all transform hover:scale-105 shadow-lg">
+                Solicitar Orçamento
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20 px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <div class="reveal">
+                <span class="inline-block py-1 px-4 border border-sage text-sage rounded-full text-xs font-semibold uppercase tracking-widest mb-6">Design que Nutre</span>
+                <h1 class="text-6xl md:text-8xl leading-[1.1] mb-8">Seu foco merece um ambiente que <span class="italic text-sage">respira</span>.</h1>
+                <p class="text-xl text-stone-600 mb-10 max-w-lg leading-relaxed">Transformamos escritórios em ecossistemas de alta performance através da arquitetura biofílica. Bem-estar físico e mental para quem lidera o futuro.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="bg-sage text-white px-8 py-4 rounded-full text-lg font-medium hover:shadow-xl transition-all">Iniciar Transformação</button>
+                    <button class="border border-stone-300 px-8 py-4 rounded-full text-lg font-medium hover:bg-white transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="play-circle" class="w-5 h-5"></i> Ver Projeto Exemplo
+                    </button>
+                </div>
+            </div>
+            <div class="relative reveal h-[500px] md:h-[650px] rounded-2xl overflow-hidden shadow-2xl group" style="transition-delay: 200ms;">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000" alt="Home office minimalista com plantas" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                <div class="absolute bottom-8 left-8 text-white">
+                    <p class="serif text-2xl italic">"Onde a natureza encontra a produtividade."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem Section -->
+    <section id="sobre" class="py-24 px-6 bg-stone-100/50">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <h2 class="text-4xl md:text-5xl mb-8">Por que o design tradicional está te esgotando?</h2>
+            <p class="text-lg text-stone-600 leading-relaxed mb-12">
+                A maioria dos home offices são extensões frias de ambientes corporativos. Ruído visual, iluminação artificial inadequada e a falta de conexão com o mundo natural aumentam o cortisol e reduzem a capacidade criativa em até 40%.
+            </p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 bg-white rounded-2xl shadow-sm">
+                    <i data-lucide="battery-low" class="w-8 h-8 text-terracotta mb-4 mx-auto"></i>
+                    <h3 class="font-bold mb-2">Fadiga Mental</h3>
+                    <p class="text-sm text-stone-500">Ambientes estéreis aceleram o cansaço cognitivo.</p>
+                </div>
+                <div class="p-8 bg-white rounded-2xl shadow-sm">
+                    <i data-lucide="eye-off" class="w-8 h-8 text-terracotta mb-4 mx-auto"></i>
+                    <h3 class="font-bold mb-2">Falta de Foco</h3>
+                    <p class="text-sm text-stone-500">A ausência de micro-pausas visuais naturais desvia a atenção.</p>
+                </div>
+                <div class="p-8 bg-white rounded-2xl shadow-sm">
+                    <i data-lucide="cloud-rain" class="w-8 h-8 text-terracotta mb-4 mx-auto"></i>
+                    <h3 class="font-bold mb-2">Baixo Humor</h3>
+                    <p class="text-sm text-stone-500">Espaços desconectados da luz solar afetam o ciclo circadiano.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions / Services -->
+    <section id="servicos" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 reveal">
+            <div class="max-w-2xl">
+                <span class="text-sage font-semibold uppercase tracking-widest text-xs">Nossos Serviços</span>
+                <h2 class="text-5xl mt-4">Soluções que integram o homem ao seu habitat.</h2>
+            </div>
+            <p class="text-stone-500 max-w-xs pb-2">Metodologia baseada em neuroarquitetura e biologia aplicada ao design.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Service 1 -->
+            <div class="reveal group">
+                <div class="bg-white p-2 rounded-3xl mb-6 shadow-sm overflow-hidden h-80">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <h3 class="text-2xl mb-3">Consultoria de Bem-Estar</h3>
+                <p class="text-stone-600 leading-relaxed mb-4">Análise técnica de iluminação, ventilação e ergonomia para otimizar seu ambiente atual sem grandes reformas.</p>
+                <a href="#" class="inline-flex items-center gap-2 text-sage font-semibold group">Saiba mais <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-2 transition-transform"></i></a>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="reveal group" style="transition-delay: 150ms;">
+                <div class="bg-white p-2 rounded-3xl mb-6 shadow-sm overflow-hidden h-80">
+                    <img src="https://images.unsplash.com/photo-1616489953149-864c20f1882d?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <h3 class="text-2xl mb-3">Projetos 3D Customizados</h3>
+                <p class="text-stone-600 leading-relaxed mb-4">Visualização completa do seu novo espaço com inserção de texturas orgânicas e jardins verticais integrados.</p>
+                <a href="#" class="inline-flex items-center gap-2 text-sage font-semibold group">Saiba mais <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-2 transition-transform"></i></a>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="reveal group" style="transition-delay: 300ms;">
+                <div class="bg-white p-2 rounded-3xl mb-6 shadow-sm overflow-hidden h-80">
+                    <img src="https://images.unsplash.com/photo-1600210491369-e753d80a41f3?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <h3 class="text-2xl mb-3">Curadoria de Mobiliário</h3>
+                <p class="text-stone-600 leading-relaxed mb-4">Seleção exclusiva de peças em madeira certificada, linho e materiais que estimulam o tato e a calma.</p>
+                <a href="#" class="inline-flex items-center gap-2 text-sage font-semibold group">Saiba mais <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-2 transition-transform"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="py-24 px-6 bg-sage text-white overflow-hidden relative">
+        <div class="max-w-5xl mx-auto text-center reveal">
+            <i data-lucide="quote" class="w-12 h-12 mx-auto mb-8 opacity-40"></i>
+            <blockquote class="text-3xl md:text-5xl serif leading-tight mb-12 italic">
+                "Minha produtividade dobrou após a consultoria. Não é apenas sobre estética, é sobre como eu me sinto ao entrar no meu escritório todas as manhãs."
+            </blockquote>
+            <div class="flex items-center justify-center gap-4">
+                <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center font-bold">MP</div>
+                <div class="text-left">
+                    <p class="font-bold">Marcos Paulo</p>
+                    <p class="text-sm opacity-70 italic uppercase tracking-wider">CEO TechFlow</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final Section -->
+    <section id="contato" class="py-24 px-6">
+        <div class="max-w-4xl mx-auto bg-stone-900 rounded-[3rem] p-12 md:p-20 text-center text-white relative overflow-hidden reveal">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-800/20 blur-[100px] rounded-full"></div>
+            <h2 class="text-4xl md:text-6xl mb-8 relative z-10">Pronto para criar seu <span class="text-emerald-400">refúgio</span> de trabalho?</h2>
+            <p class="text-lg opacity-80 mb-12 max-w-xl mx-auto relative z-10">Agenda aberta para projetos no próximo semestre. Garanta sua consultoria personalizada e mude sua rotina.</p>
+            <div class="flex flex-col items-center gap-6 relative z-10">
+                <button class="bg-white text-stone-900 px-10 py-5 rounded-full text-xl font-bold hover:bg-emerald-100 transition-all transform hover:scale-105">
+                    Solicitar Diagnóstico Gratuito
+                </button>
+                <p class="text-sm opacity-50 flex items-center gap-2">
+                    <i data-lucide="clock" class="w-4 h-4"></i> Resposta em até 24 horas
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-stone-200">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-xl serif font-bold">Nexus BioDesign</div>
+            <div class="flex gap-8 text-stone-500 text-sm">
+                <a href="#" class="hover:text-sage">Instagram</a>
+                <a href="#" class="hover:text-sage">LinkedIn</a>
+                <a href="#" class="hover:text-sage">Pinterest</a>
+            </div>
+            <div class="text-xs text-stone-400 tracking-widest uppercase">
+                &copy; 2024 Nexus BioDesign. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Navbar interaction on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/80', 'backdrop-blur-md', 'py-4', 'shadow-sm');
+                navbar.classList.remove('py-6');
+            } else {
+                navbar.classList.remove('bg-white/80', 'backdrop-blur-md', 'py-4', 'shadow-sm');
+                navbar.classList.add('py-6');
+            }
+        });
+
+        // Intersection Observer for Reveal Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Smooth reveal for images on load
+        window.onload = () => {
+            document.querySelectorAll('.reveal').forEach(el => {
+                if(el.getBoundingClientRect().top < window.innerHeight) {
+                    el.classList.add('active');
+                }
+            });
+        };
+    </script>
+</body>
+</html>
